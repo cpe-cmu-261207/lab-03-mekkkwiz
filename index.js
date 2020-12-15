@@ -6,21 +6,25 @@
  */
 export const sum = (a, b) => {
   // TODO: implement here
-
+  return a+b
 }
 
 /**
  * Returns the array after applying the given function to each element in
  * the given array.
  * @param {any[]} arr the array to be transformed
- * @param {(item: any, index: number) => any} callback the function
+ * @param {(item: any, index: number) => any} callback the function 
  *    used for transforming elements in the array
  * @returns {any[]} an array whose elements are the results of applying the
  *    callback function to the elements in the original array
  */
 export const map = (arr, callback) => {
   // TODO: implement here
-
+  let list = []
+  for (let i = 0; i < arr.length; i++){
+    list.push(callback(arr[i],i))
+  }
+  return list;
 }
 
 /**
@@ -33,7 +37,13 @@ export const map = (arr, callback) => {
  */
 export const filter = (arr, callback) => {
   // TODO: implement here
-
+  const list = []
+  for(let i = 0; i < arr.length; i++){
+    if(callback(arr[i],i)){
+      list.push(arr[i])
+    }
+  }
+  return list;
 }
 
 /**
@@ -52,6 +62,11 @@ export const filter = (arr, callback) => {
  *    in the array
  */
 export const reduce = (arr, callback, initialValue) => {
-  // TODO: implement here
+  // TODO: implement hered
+  let sum = initialValue
+  for(let i = 0; i < arr.length; i++){
+    sum = callback(sum,arr[i],i)
+  }
+  return sum;
 
 }
